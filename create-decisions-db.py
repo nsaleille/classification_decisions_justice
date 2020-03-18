@@ -6,13 +6,6 @@ soc = open('test_set/SOC').read().split("<<<<<<<<<<NEW>>>>>>>>>>")
 
 import utils.mongo as um
 
-config = {
-	"host" : "localhost",
-	"port" : "27017",
-	"username" : "",
-	"password" : ""
-}
-
 db = _connect_mongo('decisions', config['host'], config['port'], config['username'], config['password'])
 db.decisions.insert_many([{'class' : 'com', 'text' : doc} for doc in com])
 db.decisions.insert_many([{'class' : 'civ', 'text' : doc} for doc in civ])
